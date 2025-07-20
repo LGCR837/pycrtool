@@ -1,4 +1,9 @@
+# pycrtool
+
+# 介绍
 pycrtool 是一个功能丰富且使用简单的 Python 第三方模块。
+
+# 教学
 
 ## 类 run_command
 这是一个可以运行终端控制台命令并实时获取输出的 Python 类。
@@ -56,3 +61,9 @@ print(text) # 小米和苹果
 count_replace("1111111111111111","11","1") # 1
 count_replace("1111111111111111","11","1",count=2) # 1111
 ```
+
+## 类 modern_str
+这个类使你可以更加高效的管理字符串。
+
+### add_text()
+通过 `add_text(text,text_len,add_str=" ")` 可以实现在字符串后追加字符串使其达到指定长度，其中 `text` 是原始文本， `text_len` 是预计的长度， `add_str` 是在末尾追加的字符串，默认为 `" "` (空格)。

@@ -62,3 +62,11 @@ class modern_replace:
             for i in range(count):
                 text = text.replace(a,b)
         return text
+
+class modern_str:
+    def add_text(text,text_len,add_str=" "):
+        if len(text) >= text_len:
+            return text
+        remaining_length = text_len - len(text)
+        new_text = text + (add_str * (remaining_length // len(add_str))) + add_str[:remaining_length % len(add_str)]
+        return new_text

@@ -2,6 +2,7 @@ import subprocess
 import threading
 import re
 import uuid
+import sqlite3
 
 class run_command:
     def __init__(self, command):
@@ -70,3 +71,43 @@ class modern_str:
         remaining_length = text_len - len(text)
         new_text = text + (add_str * (remaining_length // len(add_str))) + add_str[:remaining_length % len(add_str)]
         return new_text
+
+class simple_sqlite3:
+    def __init__(self, db_name):
+        self.db_name = db_name
+        self.conn = sqlite3.connect(self.db_name)
+        self.cursor = self.conn.cursor()
+
+    def create_table(self, table_name, columns):
+        columns_str = ', '.join([f"{col} {typ}" for col, typ in columns.items()])
+        query = f"CREATE TABLE IF NOT EXISTS {table_name} ({columns_str});"
+        self.cursor.execute(query)
+        self.conn.commit()
+
+    def insert(self, table_name, data):
+        columns = ', '.join(data.keys())
+        values = ', '.join(['?' for _ in data.values()])
+        query = f"INSERT INTO {table_name} ({columns}) VALUES ({values});"
+        self.cursor.execute(query, tuple(data.values()))
+        self.conn.commit()
+
+    def select(self, table_name, columns='*', condition=None):
+        query = f"SELECT {columns} FROM {table_name}"
+        if condition:
+            query += f" WHERE {condition}"
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
+    def update(self, table_name, data, condition):
+        set_str = ', '.join([f"{col} = ?" for col in data.keys()])
+        query = f"UPDATE {table_name} SET {set_str} WHERE {condition};"
+        self.cursor.execute(query, tuple(data.values()))
+        self.conn.commit()
+
+    def delete(self, table_name, condition):
+        query = f"DELETE FROM {table_name} WHERE {condition};"
+        self.cursor.execute(query)
+        self.conn.commit()
+
+    def close(self):
+        self.conn.close()

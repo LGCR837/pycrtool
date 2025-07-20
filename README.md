@@ -49,3 +49,10 @@ text = "苹果和小米"
 text = pycrtool.modern_replace(text,"苹果","小米")
 print(text) # 小米和苹果
 ```
+
+### count_replace()
+通过 `count_replace(text,a,b,count=-1)` 可以实现对文本的反复替换， `count` 是替换的次数，默认为 `-1` ，即始终替换。
+```python
+count_replace("1111111111111111","11","1") # 1
+count_replace("1111111111111111","11","1",count=2) # 1111
+```

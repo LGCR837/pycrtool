@@ -51,3 +51,14 @@ class modern_replace:
             if temp not in text:
                 break
         return text.replace(a, temp).replace(b, a).replace(temp, b)
+    
+    def count_replace(text,a,b,count=-1):
+        if count == -1:
+            while a in text:
+                text = text.replace(a,b)
+        elif count < -1:
+            return ""
+        else:
+            for i in range(count):
+                text = text.replace(a,b)
+        return text

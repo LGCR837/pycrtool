@@ -5,6 +5,8 @@ import threading
 import re
 import uuid
 import sqlite3
+import requests
+from bs4 import BeautifulSoup
 
 class run_command:
     def __init__(self, command):
@@ -257,19 +259,6 @@ class suan:
             return a
         else:
             return 0
-
-
-
-
-
-
-
-
-
-
-
-import requests
-from bs4 import BeautifulSoup
 
 class crawl:
     def bing_search(query,url_start="https://www.bing.com/search?q=",url_end=""):

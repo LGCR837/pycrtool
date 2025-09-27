@@ -3,6 +3,11 @@
 # 介绍
 pycrtool 是一个功能丰富且使用简单的 Python 第三方模块。
 
+本库依赖的第三方库较多，可以通过下面命令一键安装。
+```bash
+python -m pip install requests beautifulsoup4 sqlite3
+```
+
 # 类 run_command
 这是一个可以运行终端控制台命令并实时获取输出的 Python 类。
 

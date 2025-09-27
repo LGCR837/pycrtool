@@ -1,3 +1,4 @@
+import math
 import random
 import subprocess
 import threading
@@ -226,3 +227,34 @@ class sort:
         while not is_sorted(arr):
             random.shuffle(arr)
         return arr
+
+class suan:
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    def factorial(n):
+        if n == 0 or n == 1:
+            return 1
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+
+    def pythagoras(a=None, b=None, c=None):
+        if a is not None and b is not None:
+            c = math.sqrt(a**2 + b**2)
+            return c
+        elif a is not None and c is not None:
+            b = math.sqrt(c**2 - a**2)
+            return b
+        elif b is not None and c is not None:
+            a = math.sqrt(c**2 - b**2)
+            return a
+        else:
+            return 0
+

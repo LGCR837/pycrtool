@@ -258,3 +258,31 @@ class suan:
         else:
             return 0
 
+
+
+
+
+
+
+
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+class crawl:
+    def bing_search(query,url_start="https://www.bing.com/search?q=",url_end=""):
+        url = f"{url_start}{query}{url_end}"
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        results = []
+        for item in soup.find_all('h2'):
+            title_tag = item.find('a')
+            if title_tag:
+                title = title_tag.get_text()
+                link = title_tag['href']
+                text_tag = item.find_next('p')
+                text = text_tag.get_text() if text_tag else ''
+                results.append([title, link, text])
+        return results

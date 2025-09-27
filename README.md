@@ -29,7 +29,7 @@ while not cmd.get_con(): # 检查是否运行完毕
 print(print(f"输出共 {len(cmd.get_all())} 字。") # 获得所有输出并统计字数
 ```
 
-## 类 modern_replace
+# 类 modern_replace
 这是一个能实现更加高效智能的在一些方面替代 `replace()` 的类。
 
 ### dict_replace()
@@ -62,13 +62,13 @@ count_replace("1111111111111111","11","1") # 1
 count_replace("1111111111111111","11","1",count=2) # 1111
 ```
 
-## 类 modern_str
+# 类 modern_str
 这个类使你可以更加高效的管理字符串。
 
 ### add_text()
 通过 `add_text(text,text_len,add_str=" ")` 可以实现在字符串后追加字符串使其达到指定长度，其中 `text` 是原始文本， `text_len` 是预计的长度， `add_str` 是在末尾追加的字符串，默认为 `" "` (空格)。
 
-## 类 simple_sqlite3
+# 类 simple_sqlite3
 `simple_sqlite3` 是一个简化版的 SQLite 数据库管理类，旨在为开发者提供一种简单的方式来操作 SQLite3 数据库。它封装了常见的数据库操作，如创建表、插入数据、查询数据、更新数据和删除数据,可以帮助开发者轻松地进行数据库管理，避免直接操作SQL语句。
 
 1. **初始化:**
@@ -134,3 +134,42 @@ students = db.select('students')
 print(students)
 db.close()
 ```
+
+# 类 sort
+`sort` 类可以让你方便的进行各种排序操作，`arr` 需要是能够排序的类型，如列表。
+
+### 1. **冒泡排序:**
+- **`bubble_sort(arr)`**
+  - 使用冒泡排序算法对数组进行排序。
+
+### 2. **选择排序:**
+- **`selection_sort(arr)`**
+  - 使用选择排序算法对数组进行排序。
+
+### 3. **插入排序:**
+- **`insertion_sort(arr)`**
+  - 使用插入排序算法对数组进行排序。
+
+### 4. **快速排序:**
+- **`quick_sort(arr)`**
+  - 使用快速排序算法对数组进行排序。
+
+### 5. **归并排序:**
+- **`merge_sort(arr)`**
+  - 使用归并排序算法对数组进行排序。
+
+### 6. **堆排序:**
+- **`heap_sort(arr)`**
+  - 使用堆排序算法对数组进行排序。
+
+### 7. **计数排序:**
+- **`counting_sort(arr)`**
+  - 使用计数排序算法对数组进行排序。
+
+### 8. **桶排序:**
+- **`bucket_sort(arr)`**
+  - 使用桶排序算法对数组进行排序。
+
+### 9. **猴子排序:**
+- **`monkey_sort(arr)`**
+  - 猴子会不断随机尝试所有方式直到成功。

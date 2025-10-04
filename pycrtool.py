@@ -1,15 +1,6 @@
-import math
-import random
-import subprocess
-import threading
-import re
-import uuid
-import sqlite3
-import requests
-from bs4 import BeautifulSoup
-
 class run_command:
     def __init__(self, command):
+        import subprocess
         self.command = command
         self.process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)
         self.output = []
@@ -17,6 +8,7 @@ class run_command:
         self._start_reading()
 
     def _start_reading(self):
+        import threading
         def read_output(pipe, output_list):
             for line in iter(pipe.readline, ''):
                 output_list.append(line.strip())
@@ -41,6 +33,7 @@ class run_command:
 
 class modern_replace:
     def dict_replace(text,replacements,regex=False):
+        import re
         if regex:
             for old, new in replacements.items():
                 text = re.sub(old, new, text)
@@ -51,6 +44,7 @@ class modern_replace:
             return text
 
     def cross_replace(text, a, b):
+        import uuid
         while True:
             temp = str(uuid.uuid4())
             if temp not in text:
@@ -78,6 +72,7 @@ class modern_str:
 
 class simple_sqlite3:
     def __init__(self, db_name):
+        import sqlite3
         self.db_name = db_name
         self.conn = sqlite3.connect(self.db_name)
         self.cursor = self.conn.cursor()
@@ -224,6 +219,7 @@ class sort:
         return sorted_arr
 
     def monkey_sort(arr):
+        import random
         def is_sorted(arr):
             return all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
         while not is_sorted(arr):
@@ -248,6 +244,7 @@ class suan:
         return result
 
     def pythagoras(a=None, b=None, c=None):
+        import math
         if a is not None and b is not None:
             c = math.sqrt(a**2 + b**2)
             return c
@@ -262,6 +259,8 @@ class suan:
 
 class crawl:
     def bing_search(query,url_start="https://www.bing.com/search?q=",url_end=""):
+        import requests
+        from bs4 import BeautifulSoup
         url = f"{url_start}{query}{url_end}"
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')

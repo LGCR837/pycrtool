@@ -2,6 +2,7 @@
 
 # 介绍
 pycrtool 是一个功能丰富且使用简单的 Python 第三方模块。
+文档 [pycrtool | Notion](https://sweet-haze-a5f.notion.site/2dd52d7691f58045b913cdf8e002e922?v=2dd52d7691f580c0a04b000c0ea9ccc7&source=copy_link)
 
 本库依赖的第三方库较多，可以通过下面命令一键安装。
 ```bash

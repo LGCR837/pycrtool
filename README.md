@@ -4,6 +4,7 @@
 pycrtool 是一个功能丰富且使用简单的 Python 第三方模块。
 
 [pycrtool wiki](https://sweet-haze-a5f.notion.site/2dd52d7691f58045b913cdf8e002e922?v=2dd52d7691f580c0a04b000c0ea9ccc7&source=copy_link)
+
 Gitee 上文档更新频率较慢，建议查看 wiki
 
 本库依赖的第三方库较多，可以通过下面命令一键安装。
